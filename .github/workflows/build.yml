@@ -1,6 +1,9 @@
 name: Build SEOR Recoil Lab APK
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -16,7 +19,6 @@ jobs:
         id: buildozer
         with:
           command: buildozer -v android debug
-          workdir: .
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
